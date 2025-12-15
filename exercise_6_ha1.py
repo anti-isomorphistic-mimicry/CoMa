@@ -1,0 +1,66 @@
+# Robert Jerye
+
+# exercise 1 numerical euclidean algorithm
+def gdc (divisor, dividend):
+    
+    rem = 1
+
+    while (rem!=0):
+        rem=divisor%dividend
+        divisor=dividend
+        if rem!=0:
+            dividend=rem
+    
+    return dividend
+
+
+# exercise 2 polynimial euclidean algorithm
+
+#polynomial divide from week 5
+def divide(dividen:(list),divisor:(list)):
+    
+    result = []
+    remainder = dividen.copy()
+
+    # calulating the degree of each polynomial
+    degree_p = len(dividen) - 1
+    degree_q = len(divisor) - 1
+
+    # determine the amount of steps
+    steps = degree_p - degree_q
+
+    for _ in range(steps + 1):
+        if len(remainder) < len(divisor):
+            break
+
+        # divide the two polynomials
+        factor = remainder[0] / divisor[0]
+        result.append(factor)
+
+        # subtract the devised polynomial from the remainder
+        for i in range(len(divisor)):
+            remainder[i] -= factor * divisor[i]
+
+        # remove all leading zeroes
+        while len(remainder) > 0 and remainder[0] == 0:
+            remainder.pop(0)
+
+    return result, remainder
+
+# polynimial euclidean algorithm
+
+def eucl_poly_div (dividen:(list), divisor:(list)):
+    
+    rem = [1]
+
+    while (rem!=[]):
+        rem=divide(dividen,divisor)[1]
+        divisor=divide(dividen,divisor)[0]
+        if rem!=[]:
+            dividen=rem
+    
+    return dividen
+
+print(eucl_poly_div([1,2,1],[1,1]))
+
+#sorry couldn't finish the code 
