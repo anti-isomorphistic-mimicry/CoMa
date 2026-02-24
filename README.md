@@ -1,1 +1,0 @@
-"The Python files for the CoMa I homework will include either my own code or, in cases where tutors provide corrections or input, their versions. This should be as close to the optimal solution as possible."
